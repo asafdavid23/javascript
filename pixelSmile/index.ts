@@ -17,29 +17,24 @@ drawDot(15, 4);
 outputImage();
 
 function drawVerticalLine(x: number, y: number, length: number) {
-    for (let i = 0; i < length; i++) {
-        drawDot(x, i + y);
-    }
+  for (let i = 0; i < length; i++) {
+    drawDot(x, i + y);
+  }
 }
 function drawHorizontalLine(x: number, y: number, length: number) {
-    // draw a vertical line
-    for (let i = 0; i < length; i++) {
-        drawDot(x + y, i)
-    }
+  // draw a vertical line
+  for (let i = 0; i < length; i++) {
+    drawDot(x + y, i);
+  }
 }
 
 function drawDot(x: number, y: number) {
-    if (isPointInImage(x, y)) {
-        imageData[y * imageWidth + x] = true;
-    }
+  if (isPointInImage(x, y)) {
+    imageData[y * imageWidth + x] = true;
+  }
 }
 
-function drawRectangle(
-  x: number,
-  y: number,
-  width: number,
-  height: number
-) {
+function drawRectangle(x: number, y: number, width: number, height: number) {
   // top
   drawHorizontalLine(x, y, width);
   // bottom
@@ -92,11 +87,11 @@ function outputImage(onChar = "X", offChar = " ") {
  * pixel in the array can be found via:
  *
  *     index = y * imageWidth + x
- *  
+ *
  * `x` is the horizontal position in the image
  * and `y` is the vertical position from the top
  * left corner.
- * 
+ *
  * Note: This function has a return type annotation
  * of `boolean[]`. That means it's an array of
  * booleans. We'll learn more about this in a
